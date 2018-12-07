@@ -17,7 +17,6 @@ NB: because of how yapsy discovery system works, plugins must use the following 
     class PluginExample(plugintypes.IPluginExtended):
        ...
 """
-
 from yapsy.IPlugin import IPlugin
 
 class IPluginExtended(IPlugin):

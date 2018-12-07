@@ -5,5 +5,5 @@ Module = print
 
 [Documentation]
 Author = Various
-Version = 0.1
+Version = 0.2
 Description = Print board values on stdout

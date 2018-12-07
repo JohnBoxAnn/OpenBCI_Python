@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="externals\mne_openbci.py" />
+    <Compile Include="MyOpenBCI_Python.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="openbci\cyton.py" />
     <Compile Include="openbci\ganglion.py" />
     <Compile Include="openbci\plugins\csv_collect.py" />
@@ -78,6 +81,7 @@
     <Content Include="openbci\plugins\streamer_osc.yapsy-plugin" />
     <Content Include="openbci\plugins\streamer_tcp.yapsy-plugin" />
     <Content Include="openbci\plugins\udp_server.yapsy-plugin" />
+    <Content Include="openbci\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

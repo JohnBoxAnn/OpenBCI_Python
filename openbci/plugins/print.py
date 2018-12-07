@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*- 
 import plugin_interface as plugintypes
 
 class PluginPrint(plugintypes.IPluginExtended):
@@ -9,7 +9,6 @@ class PluginPrint(plugintypes.IPluginExtended):
             None
 
     """
-
     # init
     def __init__(self):
         print("Print init")

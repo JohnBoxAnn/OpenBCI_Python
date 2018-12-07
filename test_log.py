@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*- 
 import sys; sys.path.append('..') # help python find cyton.py relative to scripts folder
 from openbci import cyton as bci
 import logging

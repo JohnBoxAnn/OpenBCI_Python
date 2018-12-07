@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*- 
 """
 Core OpenBCI object for handling connections and samples from the board.
 
@@ -17,7 +17,6 @@ FIXME: at the moment we can just force daisy mode, do not check that the module 
 TODO: enable impedance
 
 """
-
 import serial
 import struct
 import numpy as np
