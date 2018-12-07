@@ -1,4 +1,4 @@
- 
+# -*- coding:utf-8 -*- 
 """
 Extends Yapsy IPlugin interface to pass information about the board to plugins.
 

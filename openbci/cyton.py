@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 """
 Core OpenBCI object for handling connections and samples from the board.
 
@@ -16,6 +17,7 @@ FIXME: at the moment we can just force daisy mode, do not check that the module 
 TODO: enable impedance
 
 """
+
 import serial
 import struct
 import numpy as np
@@ -36,7 +38,7 @@ ADS1299_gain = 24.0  #assumed gain setting for ADS1299.  set by its Arduino code
 scale_fac_uVolts_per_count = ADS1299_Vref/float((pow(2,23)-1))/ADS1299_gain*1000000.
 scale_fac_accel_G_per_count = 0.002 /(pow(2,4)) #assume set to +/4G, so 2 mG 
 '''
-#Commands for in SDK http://docs.openbci.com/software/01-Open BCI_SDK:
+#Commands for in SDK http://docs.openbci.com/software/01-OpenBCI_SDK:
 
 command_stop = "s";
 command_startText = "x";
@@ -331,7 +333,7 @@ class OpenBCICyton(object):
         logging.info('Data packets received:'+str(self.log_packet_count))
         self.log_packet_count = 0;
       logging.warning(text)
-    print("Warning: %s" % text)
+    print("Warning: %s"%text)
 
 
   def print_incoming_text(self):
@@ -342,16 +344,19 @@ class OpenBCICyton(object):
 
     """
     line = ''
+    line.encode('utf-8',errors='replace')
     #Wait for device to send data
     time.sleep(1)
     
     if self.ser.inWaiting():
       line = ''
       c = ''
+      c.encode('utf-8',errors='replace')
      #Look for end sequence $$$
       while '$$$' not in line:
         c = self.ser.read().decode('utf-8', errors='replace') # we're supposed to get UTF8 text, but the board might behave otherwise
         line += c
+        line.encode('utf-8',errors='replace')
       print(line);
     else:
       self.warn("No Message")
@@ -373,6 +378,7 @@ class OpenBCICyton(object):
       while '$$$' not in line:
         c = serial.read().decode('utf-8', errors='replace') # we're supposed to get UTF8 text, but the board might behave otherwise
         line += c
+        line.encode('utf-8',errors='replace')
       if "OpenBCI" in line:
         return True
     return False
@@ -599,6 +605,7 @@ class OpenBCICyton(object):
         s.close()
         if openbci_serial:
           openbci_port = port;
+          break;
       except (OSError, serial.SerialException):
         pass
     if openbci_port == '':

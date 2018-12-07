@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import sys; sys.path.append('..') # help python find cyton.py relative to scripts folder
 from openbci import cyton as bci
 import logging
@@ -14,7 +15,7 @@ def printData(sample):
 
 
 if __name__ == '__main__':
-	port = '/dev/tty.usbserial-DN0096XA'
+	port = 'COM4'
 	baud = 115200
 	logging.basicConfig(filename="test.log",format='%(message)s',level=logging.DEBUG)
 	logging.info('---------LOG START-------------')

@@ -1,4 +1,5 @@
 #!/usr/bin/env python2.7
+# -*- coding:utf-8 -*-
 import argparse  # new in Python2.7
 import atexit
 import logging
@@ -59,7 +60,7 @@ if __name__ == '__main__':
 
     if args.board == "cyton":
         print ("Board type: OpenBCI Cyton (v3 API)")
-        from openbci import cyton as bci
+        import openbci.cyton as bci
     elif args.board == "ganglion":
         print ("Board type: OpenBCI Ganglion")
         import openbci.ganglion as bci
@@ -73,7 +74,7 @@ if __name__ == '__main__':
     else:
         print("Port: ", args.port)
     
-    plugins_paths = ["plugins"]
+    plugins_paths = ["./openbci/plugins"]
     if args.plugins_path:
         plugins_paths += args.plugins_path
     manager.setPluginPlaces(plugins_paths)
@@ -279,16 +280,19 @@ https://github.com/OpenBCI/OpenBCI_Python")
                     time.sleep(0.100)
 
             line = ''
+            line.encode('utf-8', errors='replace')
             time.sleep(0.1) #Wait to see if the board has anything to report
             # The Cyton nicely return incoming packets -- here supposedly messages -- whereas the Ganglion prints incoming ASCII message by itself
             if board.getBoardType() == "cyton":
               while board.ser_inWaiting():
                   c = board.ser_read().decode('utf-8', errors='replace') # we're supposed to get UTF8 text, but the board might behave otherwise
                   line += c
+                  line.encode('utf-8',errors='replace')
                   time.sleep(0.001)
                   if (c == '\n') and not flush:
                       print('%\t'+line[:-1])
                       line = ''
+                      line.encode('utf-8',errors='replace')
             elif board.getBoardType() == "ganglion":
                   while board.ser_inWaiting():
                       board.waitForNotifications(0.001)

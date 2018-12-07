@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from threading import Thread
 import socket, select, struct, time
 import plugin_interface as plugintypes

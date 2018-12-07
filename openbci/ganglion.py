@@ -24,7 +24,6 @@ import sys
 import pdb
 import glob
 # local bluepy should take precedence
-import sys
 sys.path.insert(0,"bluepy/bluepy")
 
 STUB_BTLE = False
