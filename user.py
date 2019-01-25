@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3.6
 # -*- coding:utf-8 -*- 
 import argparse  # new in Python2.7
 import atexit
