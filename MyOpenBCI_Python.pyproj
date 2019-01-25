@@ -61,7 +61,7 @@
     <Compile Include="user.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="E:\OpenBCI\MyOpenBCI_Python\tests\" />
+    <Folder Include="tests\" />
     <Folder Include="externals\" />
     <Folder Include="images\" />
     <Folder Include="openbci\" />
